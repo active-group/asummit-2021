@@ -207,10 +207,42 @@
       ((dillo? animal) (run-over-dillo animal))
       ((parrot? animal) (run-over-parrot animal)))))
 
+
+; Wenn eine neue Sorte Tiere dazukommt, muß run-over-animal geändert werden :-(
+
+; In OO müssen Klassen geändert werden, wenn Operationen hinzukommen.
+
+; Expression Problem
+
 ; interface Animal { void runOver(); }
 ; class Dillo implements Animal { ... }
 ; class Parrot implements Animal { ... }
+; class Tarantula implements Animal { ... }
 ; animal instanceof Parrot
+
+; Eine Liste ist eins der folgenden:
+; - die leere Liste
+; - eine Cons-Liste bestehend aus erstem Element und Rest-Liste
+(define list-of-numbers
+  (signature (mixed empty-list cons-list)))
+
+; Die leere Liste ...
+(define-record empty-list
+  make-empty-list
+  empty?) ; keine Felder / Selektoren
+
+(define empty (make-empty-list))
+
+; Eine Cons-Liste besteht aus:
+; - erstes Element
+; - Rest-Liste
+(define cons-list
+  cons
+  cons?
+  (first number)
+  (rest list-of-numbers))
+
+
 
 #|
 
