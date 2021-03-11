@@ -135,6 +135,8 @@
 ; - Papagei
 ; Fallunterscheidung
 ; gemischte Daten
+(define animal
+  (signature (mixed dillo parrot)))
 
 ; Ein Gürteltier hat folgende Eigenschaften
 ; - lebendig oder tot
@@ -174,8 +176,16 @@
 (define parrot1 (make-parrot "Hello!" 2))
 (define parrot2 (make-parrot "Goodbye!" 1))
 
+; Papagei überfahren
+(: run-over-parrot (parrot -> parrot))
 
+(check-expect (run-over-parrot parrot1)
+              (make-parrot "" 2))
 
+(define run-over-parrot
+  (lambda (parrot)
+    (make-parrot "" (parrot-weight parrot))))
+    
 #|
 
 In Java/OO-Sprachen:
