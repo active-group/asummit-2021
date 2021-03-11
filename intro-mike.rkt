@@ -118,7 +118,10 @@
   (lambda (time)
     (+ (* 60 (time-hour time))
        (time-minute time))))
-    
+
+; Aus Minuten seit Mitternacht die Zeit berechnen
+
+
 #|
 
 In Java/OO-Sprachen:
