@@ -147,6 +147,12 @@ data Contract =
   | Zero
   deriving Show
 
+-- Gleichung:
+-- Multiple x Zero == Zero
+multiple :: Amount -> Contract -> Contract
+multiple amount Zero = Zero
+multiple amount contract = Multiple amount contract
+
 -- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
 
 zeroCouponBond :: Amount -> Currency -> Date -> Contract
