@@ -180,7 +180,7 @@ invertPayment (Payment Short date amount currency) = Payment Long date amount cu
 
 invertPayments :: [Payment] -> [Payment]
 invertPayments [] = []
-invertPayments (first::rest) = (inverPayment first) ::  (invertPayments rest)
+invertPayments (first:rest) = (invertPayment first) : (invertPayments rest)
 
 -- Banker: "Vertrag abgeschlossen"
 
