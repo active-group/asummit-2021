@@ -174,6 +174,10 @@ a2 = And (And (One GBP) (One EUR)) (One YEN)
 data Payment = Payment Direction Date Amount Currency
   deriving Show
 
+invertPayment :: Payment -> Payment
+invertPayment (Payment Long date amount currency) = Payment Short date amount currency
+invertPayment (Payment Short date amount currency) = Payment Long date amount currency
+
 -- Banker: "Vertrag abgeschlossen"
 
 -- alle Zahlungen bis zu einem Zeitpunkt berechnen
@@ -183,7 +187,8 @@ contractPayments (One currency) now =
     ([Payment Long now 1 currency], Zero)
 contractPayments (Multiple amount contract) now = undefined
 contractPayments (Pay contract) now =
-    ([Payment Short now 1  ])
+    let (payments, residualContract) = contractPayments contract now
+    in (..., ...)
 contractPayments (Later date contract) now = undefined
 contractPayments (And contract1 contract2) now = undefined
 
