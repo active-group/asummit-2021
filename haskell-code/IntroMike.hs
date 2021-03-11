@@ -182,6 +182,10 @@ invertPayments :: [Payment] -> [Payment]
 invertPayments [] = []
 invertPayments (first:rest) = (invertPayment first) : (invertPayments rest)
 
+scalePayment :: Amount -> Payment -> Payment
+scalePayment amount' (Payment direction date amount currency) =
+    Payment direction date (amount' * amount) currency
+    
 -- Banker: "Vertrag abgeschlossen"
 
 -- alle Zahlungen bis zu einem Zeitpunkt berechnen
