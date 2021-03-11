@@ -186,13 +186,16 @@ invertPayments (first:rest) = (invertPayment first) : (invertPayments rest)
 
 -- alle Zahlungen bis zu einem Zeitpunkt berechnen
 contractPayments :: Contract -> Date -> ([Payment], Contract)
-contractPayments Zero now = undefined
+contractPayments Zero now = 
+    ([], Zero)
 contractPayments (One currency) now = 
     ([Payment Long now 1 currency], Zero)
-contractPayments (Multiple amount contract) now = undefined
+contractPayments (Multiple amount contract) now =
+    let (payments, residualContract) = contractPayments contract now
+    in (undefined, undefined)
 contractPayments (Pay contract) now =
     let (payments, residualContract) = contractPayments contract now
-    in (invertPayment payments, undefined)
+    in (map invertPayment payments, Pay residualContract)
 contractPayments (Later date contract) now = undefined
 contractPayments (And contract1 contract2) now = undefined
 
