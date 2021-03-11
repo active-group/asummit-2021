@@ -164,7 +164,8 @@ mortgage = And zcb1 zcb2 -- zcb1 `And` zcb2
 
 zcb3 = Pay zcb2
 
-a1 = And (One GBP) (And (One EUR) (One Yen))
+a1 = And (One GBP) (And (One EUR) (One YEN))
+a2 = And (And (One GBP) (One EUR)) (One YEN)
 
 {-
 Monoiden etc.
