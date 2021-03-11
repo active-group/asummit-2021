@@ -78,12 +78,13 @@ feedAnimal5 :: Animal -> Animal
 feedAnimal5 = feedAnimal 5
 
 -- Eine Liste ist eins der folgenden:
--- - die leere Liste
--- - eine Cons-Liste aus erstem Element und Rest-Liste
+-- - die leere Liste  []
+-- - eine Cons-Liste aus erstem Element und Rest-Liste   first : rest
 data List a = -- Typ-Parameter
     Empty
   | Cons a (List a)
   deriving Show
+
 
 
 
