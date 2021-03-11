@@ -185,7 +185,7 @@ invertPayments (first:rest) = (invertPayment first) : (invertPayments rest)
 scalePayment :: Amount -> Payment -> Payment
 scalePayment amount' (Payment direction date amount currency) =
     Payment direction date (amount' * amount) currency
-    
+
 -- Banker: "Vertrag abgeschlossen"
 
 -- alle Zahlungen bis zu einem Zeitpunkt berechnen
@@ -196,12 +196,20 @@ contractPayments (One currency) now =
     ([Payment Long now 1 currency], Zero)
 contractPayments (Multiple amount contract) now =
     let (payments, residualContract) = contractPayments contract now
-    in (undefined, undefined)
+    in (map (scalePayment amount) payments, Multiple amount residualContract)
 contractPayments (Pay contract) now =
     let (payments, residualContract) = contractPayments contract now
     in (map invertPayment payments, Pay residualContract)
-contractPayments (Later date contract) now = undefined
-contractPayments (And contract1 contract2) now = undefined
+contractPayments (Later date contract) now = 
+    if now < date
+    then ([], Later date contract)
+    else contractPayments contract now
+contractPayments (And contract1 contract2) now =
+    let (payments1, residualContract1) = contractPayments contract1 now
+        (payments2, residualContract2) = contractPayments contract2 now
+    in (payments1 ++ payments2, And residualContract1 residualContract2)
+
+
 
 {-
 Monoiden etc.
