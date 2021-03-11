@@ -97,6 +97,28 @@
 (define time1 (make-time 11 24)) ; 11 Uhr 24
 (define time2 (make-time 23 45))
 
+; Minuten seit Mitternacht
+(: msm (time -> natural))
+
+(check-expect (msm time1)
+              684)
+(check-expect (msm time2)
+              (+ (* 23 60) 45))
+
+; Schablone
+#;(define msm
+  (lambda (time)
+    ...
+    (time-hour time)
+    (time-minute time)
+    ...
+    ))
+              
+(define msm
+  (lambda (time)
+    (+ (* 60 (time-hour time))
+       (time-minute time))))
+    
 #|
 
 In Java/OO-Sprachen:
