@@ -242,6 +242,10 @@
   (first number)
   (rest list-of-numbers))
 
+(define list1 (cons 7 empty)) ; 1elementige Liste: 7
+(define list2 (cons 5 (cons 7 empty))) ; 2elementige Liste: 5 7
+(define list3 (cons 13 (cons 5 (cons 7 empty)))) ; 3elementige Liste: 13 5 7
+(define list4 (cons 4 list3)) ; 4elementige Liste: 4 13 5 7
 
 
 #|
