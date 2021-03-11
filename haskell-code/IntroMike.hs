@@ -36,3 +36,8 @@ data Dillo = Dillo Liveness Weight
 
 dillo1 = Dillo Alive 10 -- lebendiges Gürteltier, 10kg
 dillo2 = Dillo Dead 8 -- totes Gürteltier, 8kg
+
+-- Gürteltier überfahren
+-- runOverDillo :: Dillo -> Dillo
+runOverDillo (Dillo l w) = Dillo Dead w
+--           ^^^^^^^^^^^ Pattern
