@@ -31,8 +31,9 @@
 
 ; Schritt 1: Kurzbeschreibung
 ; Zwei Bilder in quadratischem Kachelmuster anordnen
-; Signatur:
+; Signaturdeklaration:
 (: tile (image image -> image))
+; dort Signatur (image image -> image)
 
 ; Testfall
 
@@ -43,6 +44,39 @@
      (beside image2 image1))))
 
 ;(tile star1 overlay1)
+
+; Ein Haustier ist eins der folgenden:
+; - Hund ODER
+; - Katze ODER
+; - Schlange
+; Fallunterscheidung
+; Spezialfall: Aufzählung
+(define pet
+  (signature (enum "dog" "cat" "snake")))
+
+; Ist ein Haustier niedlich?
+(: cute? (pet -> boolean))
+
+(check-expect (cute? "dog") #t) ; "true"
+(check-expect (cute? "cat") #t)
+(check-expect (cute? "snake") #f)
+
+; Schablone
+#;(define cute?
+  (lambda (pet)
+    (cond ; Verzweigung, 1 Zweig pro Fall
+      ; jeder Zweig (Bedingung Ergebnis)      
+      ((string=? pet "dog") ...)
+      ((string=? pet "cat") ...)
+      ((string=? pet "snake") ...))))
+
+(define cute?
+  (lambda (pet)
+    (cond ; Verzweigung, 1 Zweig pro Fall
+      ; jeder Zweig (Bedingung Ergebnis)      
+      ((string=? pet "dog") #t)
+      ((string=? pet "cat") #t)
+      ((string=? pet "snake") #f))))
 
 #|
 
