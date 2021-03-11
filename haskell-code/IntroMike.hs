@@ -20,3 +20,16 @@ isCute :: Pet -> Bool
 isCute Dog = True
 isCute Cat = True
 isCute Snake = False
+
+-- Ein Gürteltier hat folgende Eigenschaften:
+-- - lebendig oder tot
+-- - Gewicht
+data Liveness = Dead | Alive 
+  deriving Show
+
+type Weight = Integer
+
+data Dillo = Dillo Liveness Weight
+  deriving Show
+--   ^^^ Typ
+--           ^^^^^ Konstruktor
