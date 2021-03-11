@@ -52,7 +52,7 @@
 ; Fallunterscheidung
 ; Spezialfall: Aufzählung
 (define pet
-  (signature (enum "dog" "cat" "snake")))
+  (signature (enum "dog" "cat" "snake"))
 
 ; Ist ein Haustier niedlich?
 (: cute? (pet -> boolean))
@@ -77,6 +77,9 @@
       ((string=? pet "dog") #t)
       ((string=? pet "cat") #t)
       ((string=? pet "snake") #f))))
+
+;(cute? "parakeet")
+
 
 #|
 
