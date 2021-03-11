@@ -218,7 +218,7 @@ contractPayments (Later date contract) now =
 contractPayments (And contract1 contract2) now =
     let (payments1, residualContract1) = contractPayments contract1 now
         (payments2, residualContract2) = contractPayments contract2 now
-    in (payments1 ++ payments2, and residualContract1 residualContract2)
+    in (payments1 ++ payments2, IntroMike.and residualContract1 residualContract2)
 
 
 
