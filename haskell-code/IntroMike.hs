@@ -105,3 +105,16 @@ Zero-Coupon Bond
 "Receive 100GBP on 29 Jan 2001"
 -}
 
+type Amount = Double
+
+data Currency = EUR | GBP | YEN
+  deriving Show
+
+data Date = Date String
+  deriving (Show, Eq, Ord) -- Eq: equals, Ord: Comparable
+
+data Contract =
+    ZeroCouponBond Amount Currency Date
+    deriving Show
+
+zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
