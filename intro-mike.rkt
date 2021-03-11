@@ -262,6 +262,23 @@
        (+ (first list)
           (list-sum (rest list)))))))
 
+; Liste aufmultiplizieren
+(: list-product (list-of-numbers -> number))
+
+(check-expect (list-product list3) 447)
+
+; (* x 1) == x == (* 1 x)
+; (+ x 0) == x == (+ 0 x)
+
+(define list-product
+  (lambda (list)
+    (cond
+      ((empty? list) 1) ; Algebra: neutrales Element
+      ((cons? list)
+       (* (first list)
+          (list-product (rest list)))))))
+
+
 #|
 
 In Java/OO-Sprachen:
