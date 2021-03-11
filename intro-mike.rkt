@@ -236,7 +236,7 @@
 ; Eine Cons-Liste besteht aus:
 ; - erstes Element
 ; - Rest-Liste
-(define cons-list
+(define-record cons-list
   cons
   cons?
   (first number)
