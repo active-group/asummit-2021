@@ -34,6 +34,7 @@
 ; Signatur:
 (: tile (image image -> image))
 
+; Testfall
 
 (define tile
   (lambda (image1 image2)
