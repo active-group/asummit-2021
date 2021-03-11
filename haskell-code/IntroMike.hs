@@ -98,6 +98,8 @@ Vorgehensweise:
 3. suche Selbstreferenzen ("closure of operations")
 4. weitere Beispiele einarbeiten
 5. suche >=1 binären Operator
+6. Wenn Du einen binären Operator hast, finde einen Monoiden, d.h.
+   Assoziativität, neutrales Element
 -}
 
 {-
@@ -161,3 +163,28 @@ zcb2 = Pay (zeroCouponBond 105 GBP (Date "2002-02-1"))
 mortgage = And zcb1 zcb2 -- zcb1 `And` zcb2
 
 zcb3 = Pay zcb2
+
+a1 = And (One GBP) (And (One EUR) (One Yen))
+
+{-
+Monoiden etc.
+
+Menge M / Typ M
+Funktion/Operator
+op :: M -> M -> M
+(Beispiele: +, *, overlay, beside, above)
+
+Assoziativgesetz
+(a + b) + c = a + (b + c)
+=> legitim a + b + c
+
+M + binärer Operator + Assoziativität: Halbgruppe
+
+Halbgruppe + neutrales Element: Monoid
+
+neutrales Element n:
+
+n + x = x = x + n
+
+
+-}
