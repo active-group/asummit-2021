@@ -16,3 +16,4 @@ data Pet = Dog | Cat | Snake
 
 -- Ist Haustier niedlich?
 isCute :: Pet -> Bool
+isCute 
