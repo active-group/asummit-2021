@@ -144,6 +144,7 @@ data Contract =
   | Later Date Contract
   | Pay Contract -- dreht alle Zahlungsströme um
   | And Contract Contract
+  | Zero
   deriving Show
 
 -- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
@@ -164,7 +165,9 @@ mortgage = And zcb1 zcb2 -- zcb1 `And` zcb2
 
 zcb3 = Pay zcb2
 
+a1 :: Contract
 a1 = And (One GBP) (And (One EUR) (One YEN))
+a2 :: Contract
 a2 = And (And (One GBP) (One EUR)) (One YEN)
 
 {-
