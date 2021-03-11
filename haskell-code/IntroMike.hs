@@ -44,7 +44,7 @@ data Dillo = Dillo Liveness Weight
 
 -- algebraischer Datentyp
 data Animal =
-    Dillo Liveness Weight
+    Dillo { dilloLiveness :: Liveness, dilloWeight :: Weight }
   | Parrot String Weight
   deriving Show
 
