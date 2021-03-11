@@ -182,7 +182,8 @@ contractPayments Zero now = undefined
 contractPayments (One currency) now = 
     ([Payment Long now 1 currency], Zero)
 contractPayments (Multiple amount contract) now = undefined
-contractPayments (Pay contract) now = undefined
+contractPayments (Pay contract) now =
+    ([Payment Short now 1  ])
 contractPayments (Later date contract) now = undefined
 contractPayments (And contract1 contract2) now = undefined
 
