@@ -83,6 +83,7 @@ feedAnimal5 = feedAnimal 5
 data List a = -- Typ-Parameter
     Empty
   | Cons a (List a)
+  deriving Show
 
 
 
