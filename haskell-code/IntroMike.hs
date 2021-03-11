@@ -94,7 +94,7 @@ listSum (first:rest) =
 Vorgehensweise:
 
 1. möglichst einfache Beispiele einholen
-
+2. einfache Beispiele in atomare Bauteile aufteilen
 
 -}
 
