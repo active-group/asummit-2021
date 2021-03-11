@@ -85,6 +85,10 @@ data List a = -- Typ-Parameter
   | Cons a (List a)
   deriving Show
 
+listSum :: [Integer] -> Integer
+listSum [] = 0
+listSum (first:rest) = 
+    first + (listSum rest)
 
 
 
