@@ -223,6 +223,7 @@
 ; Eine Liste ist eins der folgenden:
 ; - die leere Liste
 ; - eine Cons-Liste bestehend aus erstem Element und Rest-Liste
+;                                                         ^^^^^ Selbstbezug
 (define list-of-numbers
   (signature (mixed empty-list cons-list)))
 
@@ -247,6 +248,19 @@
 (define list3 (cons 13 (cons 5 (cons 7 empty)))) ; 3elementige Liste: 13 5 7
 (define list4 (cons 4 list3)) ; 4elementige Liste: 4 13 5 7
 
+; Elemente einer Liste aufsummieren
+(: list-sum (list-of-numbers -> number))
+
+(check-expect (list-sum list4)
+              29)
+
+(define list-sum
+  (lambda (list)
+    (cond
+      ((empty? list) 0)
+      ((cons? list)
+       (+ (first list)
+          (list-sum (rest list)))))))
 
 #|
 
