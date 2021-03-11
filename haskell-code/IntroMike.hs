@@ -170,6 +170,21 @@ a1 = And (One GBP) (And (One EUR) (One YEN))
 a2 :: Contract
 a2 = And (And (One GBP) (One EUR)) (One YEN)
 
+-- 1 Zahlung
+data Payment = Payment Direction Date Amount Currency
+  deriving Show
+
+-- Banker: "Vertrag abgeschlossen"
+
+-- alle Zahlungen bis zu einem Zeitpunkt berechnen
+contractPayments :: Contract -> Date -> ([Payment], Contract)
+contractPayments Zero now = undefined
+contractPayments (One currency) now = undefined
+contractPayments (Multiple amount contract) now = undefined
+contractPayments (Pay contract) now = undefined
+contractPayments (Later date contract) now = undefined
+contractPayments (And contract1 contract2) now = undefined
+
 {-
 Monoiden etc.
 
