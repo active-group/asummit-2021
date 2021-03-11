@@ -102,6 +102,6 @@ Vorgehensweise:
 Finanzverträge:
 
 Zero-Coupon Bond
-
+"Receive 100GBP on 29 Jan 2001"
 
 -}
