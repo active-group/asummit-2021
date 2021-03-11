@@ -130,6 +130,12 @@
     (make-time (quotient minutes 60)
                (remainder minutes 60))))
 
+; Ein Tier (auf dem texanischen Highway) ist eins der folgenden:
+; - Gürteltier ODER
+; - Papagei
+; Fallunterscheidung
+; gemischte Daten
+
 ; Ein Gürteltier hat folgende Eigenschaften
 ; - lebendig oder tot
 ; - Gewicht
@@ -154,7 +160,8 @@
 (define run-over-dillo
   (lambda (dillo)
     (make-dillo #f (dillo-weight dillo))))
-    
+
+
 #|
 
 In Java/OO-Sprachen:
