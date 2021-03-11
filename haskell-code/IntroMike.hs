@@ -149,6 +149,7 @@ data Contract =
 
 -- Gleichung:
 -- Multiple x Zero == Zero
+-- Smart Constructor
 multiple :: Amount -> Contract -> Contract
 multiple amount Zero = Zero
 multiple amount contract = Multiple amount contract
@@ -202,7 +203,7 @@ contractPayments (One currency) now =
     ([Payment Long now 1 currency], Zero)
 contractPayments (Multiple amount contract) now =
     let (payments, residualContract) = contractPayments contract now
-    in (map (scalePayment amount) payments, Multiple amount residualContract)
+    in (map (scalePayment amount) payments, multiple amount residualContract)
 contractPayments (Pay contract) now =
     let (payments, residualContract) = contractPayments contract now
     in (map invertPayment payments, Pay residualContract)
