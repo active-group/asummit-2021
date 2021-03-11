@@ -141,6 +141,7 @@ data Contract =
 
 -- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
 
+zeroCouponBond :: Amount -> Currency -> Date -> Contract
 zeroCouponBond amount currency date =
     Later date (Multiple amount (One currency))
 
