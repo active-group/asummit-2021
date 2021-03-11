@@ -46,6 +46,7 @@ data Dillo = Dillo Liveness Weight
 data Animal =
     Dillo Liveness Weight
   | Parrot String Weight
+  deriving Show
 
 dillo1 :: Animal
 dillo1 = Dillo Alive 10 -- lebendiges Gürteltier, 10kg
