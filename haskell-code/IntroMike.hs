@@ -113,8 +113,16 @@ data Currency = EUR | GBP | YEN
 data Date = Date String
   deriving (Show, Eq, Ord) -- Eq: equals, Ord: Comparable
 
+{-
 data Contract =
     ZeroCouponBond Amount Currency Date
+  | Call
+  | Put 
+  | Himalaya
+  | Everest
     deriving Show
+-}
 
-zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
+
+
+-- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
