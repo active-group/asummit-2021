@@ -97,7 +97,7 @@ Vorgehensweise:
 2. einfache Beispiele in atomare Bauteile aufteilen
 3. suche Selbstreferenzen ("closure of operations")
 4. weitere Beispiele einarbeiten
-
+5. suche >=1 binären Operator
 -}
 
 {-
@@ -141,6 +141,7 @@ data Contract =
   | Multiple Amount Contract
   | Later Date Contract
   | Pay Contract -- dreht alle Zahlungsströme um
+  | And Contract Contract
   deriving Show
 
 -- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
@@ -156,5 +157,7 @@ strange :: Contract
 strange = Later (Date "2022-01-01") (Later (Date "2021-06-01") (One EUR))
 
 zcb2 = Pay (zeroCouponBond 105 GBP (Date "2002-02-1"))
+
+mortgage = And zcb1 zcb2 -- zcb1 `And` zcb2
 
 zcb3 = Pay zcb2
