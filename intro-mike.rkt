@@ -284,7 +284,8 @@
           (list-product (rest list)))))))
 
 ; Funktion höherer Ordnung / Higher-Order Function
-(: list-fold (number (number number -> number) list-of-numbers -> number))
+; %a: Signaturvariable
+(: list-fold (%b (%a %b -> %b) (list-of %a) -> %b))
 
 (check-expect (list-fold 0 + list4) 29)
 (check-expect (list-fold 1 * list3) 455)
@@ -294,7 +295,7 @@
     (cond
       ((empty? list) e)
       ((cons? list)
-       (c (first list)
+       (c (first list) ; %a
           (list-fold e c (rest list)))))))
 
 #|
