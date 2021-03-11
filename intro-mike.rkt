@@ -224,8 +224,10 @@
 ; - die leere Liste
 ; - eine Cons-Liste bestehend aus erstem Element und Rest-Liste
 ;                                                         ^^^^^ Selbstbezug
-(define list-of-numbers
-  (signature (mixed empty-list cons-list)))
+(define list-of
+  (lambda (element)
+    (signature (mixed empty-list
+                      (cons-list-of element)))))
 
 ; Die leere Liste ...
 (define-record empty-list
@@ -237,11 +239,14 @@
 ; Eine Cons-Liste besteht aus:
 ; - erstes Element
 ; - Rest-Liste
-(define-record cons-list
+(define-record (cons-list-of element) ; macht im Hintergrund Lambda
   cons
   cons?
-  (first number)
-  (rest list-of-numbers))
+  (first element)
+  (rest (list-of element)))
+
+; (list-of dillo) ... (list-of animal)
+(define list-of-numbers (signature (list-of number)))
 
 (define list1 (cons 7 empty)) ; 1elementige Liste: 7
 (define list2 (cons 5 (cons 7 empty))) ; 2elementige Liste: 5 7
