@@ -162,6 +162,20 @@
     (make-dillo #f (dillo-weight dillo))))
 
 
+; Ein Papagei hat folgende Eigenschaften:
+; - Satz (kann sprechen)
+; - Gewicht
+; zusammengesetzte Daten
+(define-record parrot
+  make-parrot
+  (parrot-sentence string)
+  (parrot-weight number))
+
+(define parrot1 (make-parrot "Hello!" 2))
+(define parrot2 (make-parrot "Goodbye!" 1))
+
+
+
 #|
 
 In Java/OO-Sprachen:
