@@ -278,13 +278,19 @@
        (* (first list)
           (list-product (rest list)))))))
 
-(define xxx
+; Funktion höherer Ordnung / Higher-Order Function
+(: list-fold (number (number number -> number) list-of-numbers -> number))
+
+(check-expect (list-fold 0 + list4) 29)
+(check-expect (list-fold 1 * list3) 455)
+
+(define list-fold
   (lambda (e c list)
     (cond
       ((empty? list) e)
       ((cons? list)
        (c (first list)
-          (xxx e c (rest list)))))))
+          (list-fold e c (rest list)))))))
 
 #|
 
