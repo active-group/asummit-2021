@@ -13,3 +13,6 @@ y = 23 + 45
 data Pet = Dog | Cat | Snake
   deriving Show
 -- ^ neuer Datentyp
+
+-- Ist Haustier niedlich?
+isCute :: Pet -> Bool
