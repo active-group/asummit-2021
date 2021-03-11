@@ -144,8 +144,12 @@
 ; zusammengesetzte Daten
 (define-record dillo
   make-dillo
+  dillo? ; Prädikat
   (dillo-alive? boolean)
   (dillo-weight number))
+
+; Ist das Objekt ein Gürteltier?
+(: dillo? (any -> boolean))
 
 (define dillo1 (make-dillo #t 10)) ; lebendiges Gürteltier, 10kg
 (define dillo2 (make-dillo #f 8)) ; totes Gürteltier, 8kg
@@ -170,6 +174,7 @@
 ; zusammengesetzte Daten
 (define-record parrot
   make-parrot
+  parrot?
   (parrot-sentence string)
   (parrot-weight number))
 
@@ -185,7 +190,20 @@
 (define run-over-parrot
   (lambda (parrot)
     (make-parrot "" (parrot-weight parrot))))
-    
+
+; Tier überfahren
+(: run-over-animal (animal -> animal))
+
+(check-expect (run-over-animal dillo1)
+              (run-over-dillo dillo1))
+(check-expect (run-over-animal parrot1)
+              (run-over-parrot parrot1))
+
+(define run-over-animal
+  (lambda (animal)
+    (cond
+      (... ...)
+      (... ...))))
 #|
 
 In Java/OO-Sprachen:
