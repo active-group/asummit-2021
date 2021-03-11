@@ -265,7 +265,7 @@
 ; Liste aufmultiplizieren
 (: list-product (list-of-numbers -> number))
 
-(check-expect (list-product list3) 447)
+(check-expect (list-product list3) 455)
 
 ; (* x 1) == x == (* 1 x)
 ; (+ x 0) == x == (+ 0 x)
