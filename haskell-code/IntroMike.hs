@@ -154,6 +154,10 @@ multiple :: Amount -> Contract -> Contract
 multiple amount Zero = Zero
 multiple amount contract = Multiple amount contract
 
+and Zero contract = contract
+and contract Zero = contract 
+and contract1 contract2 = And contract1 contract2
+
 -- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
 
 zeroCouponBond :: Amount -> Currency -> Date -> Contract
