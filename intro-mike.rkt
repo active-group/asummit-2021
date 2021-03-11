@@ -178,6 +178,8 @@
   (parrot-sentence string)
   (parrot-weight number))
 
+(: parrot? (any -> boolean))
+   
 (define parrot1 (make-parrot "Hello!" 2))
 (define parrot2 (make-parrot "Goodbye!" 1))
 
