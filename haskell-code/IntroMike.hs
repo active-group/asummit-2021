@@ -136,6 +136,7 @@ data Contract =
 data Contract =
     One Currency  -- "Ich bekomme 1EUR JETZT"
   | Multiple Amount Contract
+  | Later Date Contract
   deriving Show
 
 -- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
