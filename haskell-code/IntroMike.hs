@@ -188,7 +188,7 @@ contractPayments (One currency) now =
 contractPayments (Multiple amount contract) now = undefined
 contractPayments (Pay contract) now =
     let (payments, residualContract) = contractPayments contract now
-    in (inverPayment payments, undefined)
+    in (invertPayment payments, undefined)
 contractPayments (Later date contract) now = undefined
 contractPayments (And contract1 contract2) now = undefined
 
