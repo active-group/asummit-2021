@@ -16,4 +16,7 @@ data Pet = Dog | Cat | Snake
 
 -- Ist Haustier niedlich?
 isCute :: Pet -> Bool
-isCute 
+-- 3 Fälle => 3 Gleichungen
+isCute Dog = True
+isCute Cat = True
+isCute Snake = False
