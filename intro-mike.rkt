@@ -52,7 +52,7 @@
 ; Fallunterscheidung
 ; Spezialfall: Aufzählung
 (define pet
-  (signature (enum "dog" "cat" "snake"))
+  (signature (enum "dog" "cat" "snake")))
 
 ; Ist ein Haustier niedlich?
 (: cute? (pet -> boolean))
@@ -79,9 +79,12 @@
       ((string=? pet "snake") #f)
       #;(else #f))))
 
-;(cute? "parakeet")
+  ;(cute? "parakeet")
 
-
+; Uhrzeit:
+; Stunde
+; Minute
+  
 #|
 
 In Java/OO-Sprachen:
