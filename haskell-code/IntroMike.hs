@@ -179,7 +179,8 @@ data Payment = Payment Direction Date Amount Currency
 -- alle Zahlungen bis zu einem Zeitpunkt berechnen
 contractPayments :: Contract -> Date -> ([Payment], Contract)
 contractPayments Zero now = undefined
-contractPayments (One currency) now = undefined
+contractPayments (One currency) now = 
+    ([Payment Long now 1 currency], Zero)
 contractPayments (Multiple amount contract) now = undefined
 contractPayments (Pay contract) now = undefined
 contractPayments (Later date contract) now = undefined
