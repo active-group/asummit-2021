@@ -3,6 +3,12 @@
 #reader(lib "beginner-reader.rkt" "deinprogramm" "sdp")((modname intro-mike) (read-case-sensitive #f) (teachpacks ((lib "image.rkt" "teachpack" "deinprogramm" "sdp"))) (deinprogramm-settings #(#f write repeating-decimal #f #t none explicit #f ((lib "image.rkt" "teachpack" "deinprogramm" "sdp")))))
 (define x (+ 12 23))
 
+(define y
+  (* 12
+     (* (+ 15
+           27)
+        29)))
+                   
 (define circle1 (circle 50 "solid" "gold"))
 
 (define square1 (square 100 "outline" "green"))
