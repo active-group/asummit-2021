@@ -64,3 +64,4 @@ runOverDillo (Dillo l w) = Dillo Dead w
 runOverAnimal :: Animal -> Animal
 runOverAnimal dillo@(Dillo {}) = dillo { dilloLiveness = Dead }
 runOverAnimal (Parrot sentence weight) = Parrot "" weight
+
