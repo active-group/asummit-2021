@@ -29,15 +29,37 @@ data Liveness = Dead | Alive
 
 type Weight = Integer
 
+-- Ein Tier ist eins der folgenden:
+-- - Gürteltier
+-- - Papagei
+-- In Haskell:
+-- alle Fälle von gemischten Daten müssen auf einmal definiert werden
+
+{-
 data Dillo = Dillo Liveness Weight
   deriving Show
 --   ^^^ Typ
 --           ^^^^^ Konstruktor
+-}
 
+-- algebraischer Datentyp
+data Animal =
+    Dillo Liveness Weight
+  | Parrot String Weight
+
+dillo1 :: Animal
 dillo1 = Dillo Alive 10 -- lebendiges Gürteltier, 10kg
+dillo2 :: Animal
 dillo2 = Dillo Dead 8 -- totes Gürteltier, 8kg
 
+{-
 -- Gürteltier überfahren
 runOverDillo :: Dillo -> Dillo
 runOverDillo (Dillo l w) = Dillo Dead w
 --           ^^^^^^^^^^^ Pattern
+-}
+
+-- Tier überfahren
+runOverAnimal :: Animal -> Animal
+runOverAnimal (Dillo liveness weight) = Dillo Dead weight
+runOverAnimal (Parrot sentence weight) = Parrot "" weight
