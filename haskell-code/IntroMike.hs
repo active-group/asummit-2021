@@ -95,7 +95,8 @@ Vorgehensweise:
 
 1. möglichst einfache Beispiele einholen
 2. einfache Beispiele in atomare Bauteile aufteilen
-3. suche Selbstreferenzen
+3. suche Selbstreferenzen ("closure of operations")
+4. weitere Beispiele einarbeiten
 
 -}
 
@@ -132,11 +133,14 @@ data Contract =
   | Everest
     deriving Show
 -}
+data Direction = Long | Short 
+  deriving Show
 
 data Contract =
     One Currency  -- "Ich bekomme 1EUR JETZT"
   | Multiple Amount Contract
   | Later Date Contract
+  | Pay Contract -- dreht alle Zahlungsströme um
   deriving Show
 
 -- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
@@ -150,3 +154,7 @@ zcb1 = -- Later (Date "2001-01-29") (Multiple 100 (One GBP))
 
 strange :: Contract
 strange = Later (Date "2022-01-01") (Later (Date "2021-06-01") (One EUR))
+
+zcb2 = Pay (zeroCouponBond 105 GBP (Date "2002-02-1"))
+
+zcb3 = Pay zcb2
