@@ -120,6 +120,28 @@
        (time-minute time))))
 
 ; Aus Minuten seit Mitternacht die Zeit berechnen
+(: msm->time (natural -> time))
+
+(check-expect (msm->time (msm time1)) time1)
+(check-expect (msm->time (msm time2)) time2)
+
+(define msm->time
+  (lambda (minutes)
+    (make-time (quotient minutes 60)
+               (remainder minutes 60))))
+
+; Ein Gürteltier hat folgende Eigenschaften
+; - lebendig oder tot
+; - Gewicht
+; zusammengesetzte Daten
+(define-record dillo
+  make-dillo
+  (dillo-alive? boolean)
+  (dillo-weight number))
+
+(define dillo1 (make-dillo #t 10)) ; lebendiges Gürteltier, 10kg
+(define dillo2 (make-dillo #f 8)) ; totes Gürteltier, 8kg
+
 
 
 #|
