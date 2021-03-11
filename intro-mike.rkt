@@ -27,10 +27,34 @@
  (beside square1 circle1)
  (beside circle1 square1))
 
+; Konstruktionsanleitungen
+
+; Schritt 1: Kurzbeschreibung
+; Zwei Bilder in quadratischem Kachelmuster anordnen
+; Signatur:
+(: tile (image image -> image))
+
+
 (define tile
   (lambda (image1 image2)
     (above
      (beside image1 image2)
      (beside image2 image1))))
 
-(tile star1 overlay1)
+;(tile star1 overlay1)
+
+#|
+
+In Java/OO-Sprachen:
+Eine Variable steht für eine Speicherzelle, in der ein Wert drinsteht.
+
+class C {
+  int m(int x) {
+    x
+    x = 12;
+    ...
+    x
+  }
+}
+
+|#
