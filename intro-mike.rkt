@@ -27,6 +27,10 @@
  (beside square1 circle1)
  (beside circle1 square1))
 
-(above
- (beside image1 image2)
- (beside image2 image1))
+(define tile
+  (lambda (image1 image2)
+    (above
+     (beside image1 image2)
+     (beside image2 image1))))
+
+(tile star1 overlay1)
