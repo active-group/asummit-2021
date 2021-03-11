@@ -103,6 +103,15 @@ Finanzverträge:
 
 Zero-Coupon Bond
 "Receive 100GBP on 29 Jan 2001"
+"Pay 105GBP on 1 Feb 2002"
+
+3 Ideen:
+
+- "später"
+- "Währung"
+- "Betrag"
+
+später: "bezahlen"
 -}
 
 type Amount = Double
@@ -123,6 +132,9 @@ data Contract =
     deriving Show
 -}
 
-
+data Contract =
+    One Currency  -- "Ich bekomme 1EUR JETZT"
+  | Multiple Amount Currency
+  deriving Show
 
 -- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
