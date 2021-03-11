@@ -178,6 +178,10 @@ invertPayment :: Payment -> Payment
 invertPayment (Payment Long date amount currency) = Payment Short date amount currency
 invertPayment (Payment Short date amount currency) = Payment Long date amount currency
 
+invertPayments :: [Payment] -> [Payment]
+invertPayments [] = []
+invertPayments (first::rest) = (inverPayment first) ::  (invertPayments rest)
+
 -- Banker: "Vertrag abgeschlossen"
 
 -- alle Zahlungen bis zu einem Zeitpunkt berechnen
