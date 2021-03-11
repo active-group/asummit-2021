@@ -25,7 +25,7 @@ isCute Snake = False
 -- - lebendig oder tot
 -- - Gewicht
 data Liveness = Dead | Alive 
-  deriving Show
+  deriving Show -- definiert Pendant zu .toString in Java automatisch
 
 type Weight = Integer
 
