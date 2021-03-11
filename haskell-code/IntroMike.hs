@@ -95,6 +95,7 @@ Vorgehensweise:
 
 1. möglichst einfache Beispiele einholen
 2. einfache Beispiele in atomare Bauteile aufteilen
+3. suche Selbstreferenzen
 
 -}
 
@@ -134,7 +135,7 @@ data Contract =
 
 data Contract =
     One Currency  -- "Ich bekomme 1EUR JETZT"
-  | Multiple Amount Currency
+  | Multiple Amount Contract
   deriving Show
 
 -- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
