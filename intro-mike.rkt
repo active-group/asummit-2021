@@ -278,6 +278,13 @@
        (* (first list)
           (list-product (rest list)))))))
 
+(define xxx
+  (lambda (e c list)
+    (cond
+      ((empty? list) e)
+      ((cons? list)
+       (c (first list)
+          (xxx e c (rest list)))))))
 
 #|
 
