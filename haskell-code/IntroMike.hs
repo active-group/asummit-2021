@@ -140,3 +140,9 @@ data Contract =
   deriving Show
 
 -- zcb1 = ZeroCouponBond 100 GBP (Date "2001-01-29")
+
+zeroCouponBond amount currency date =
+    Later date (Multiple amount (One currency))
+
+zcb1 = -- Later (Date "2001-01-29") (Multiple 100 (One GBP))
+  zeroCouponBond 100 GBP (Date "2001-01-29")
