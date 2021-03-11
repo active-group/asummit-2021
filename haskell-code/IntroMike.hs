@@ -90,6 +90,18 @@ listSum [] = 0
 listSum (first:rest) = 
     first + (listSum rest)
 
+{-
+Vorgehensweise:
+
+1. möglichst einfache Beispiele einholen
 
 
+-}
 
+{-
+Finanzverträge:
+
+Zero-Coupon Bond
+
+
+-}
