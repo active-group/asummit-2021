@@ -43,3 +43,15 @@ data List =
     Empty
   | Cons Int List
   deriving Show
+
+-- Liste, 1 Element, 17
+list1 :: List
+list1 = Cons 17 Empty
+-- 2elementige Liste: 5 17
+list2 :: List
+list2 = Cons 5 (Cons 17 Empty)
+
+-- Summe aller Listenelemente berechnen
+listSum :: List -> Int
+listSum Empty = 0
+listSum (Cons first rest) = first + (listSum rest)
