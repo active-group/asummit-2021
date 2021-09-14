@@ -183,13 +183,18 @@ indexOf x (first:rest) =
 -- "abstract nonsense"
 class Functor f where
     -- umap id = id 
-    umap :: (a -> b) -> f a -> f b
+    umap :: (a -> b)   -> f a -> f b
 
 instance Functor [] where
     umap = listMap
 
 instance Functor Optional where
     umap = optionalMap
+
+class Functor f => Monad f where
+    unit :: a -> f a
+    -- bind :: (a -> f b) -> f a -> f b
+    bind :: f a -> (a -> f  b) -> f b
 
 
 
