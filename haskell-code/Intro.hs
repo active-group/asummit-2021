@@ -130,6 +130,7 @@ instance Monoid [a] where
     neutral = []
 
 data Additive = Additive Int
+  deriving Show
 
 instance Semigroup Additive where
     op (Additive n1) (Additive n2) = Additive (n1 + n2)
