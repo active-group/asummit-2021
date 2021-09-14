@@ -34,10 +34,13 @@ parrot1 = Parrot "Hallo1" 1
 -- Tier überfahren
 -- runOverAnimal :: Animal -> Animal
 -- 1 Gleichung pro Fall im Datentyp
+-- Typ bedeutet: runOverAnimal verändert Gewicht eines Tiers nicht
+runOverAnimal :: Animal weight -> Animal weight
 runOverAnimal (Dillo liveness w) = Dillo Dead w
 runOverAnimal (Parrot _ weight) = Parrot "" weight
 
 -- feedAnimal :: Weight -> Animal -> Animal
+feedAnimal :: Num weight => weight -> Animal weight -> Animal weight
 feedAnimal amount (Dillo liveness weight) = Dillo liveness (weight + amount)
 feedAnimal amount (Parrot sentence weight) = Parrot sentence (weight + amount)
 
