@@ -213,7 +213,7 @@ Variable steht für einen Wert => Substitution zulässig / Mathematik
 ; - Papagei
 ; gemischte Daten
 (define animal
-  (signature (mixed dillo parrot)))
+  (signature (mixed dillo parrot #;rattlesnake)))
 
 ; Tier überfahren
 (: run-over-animal (animal -> animal))
@@ -228,3 +228,71 @@ Variable steht für einen Wert => Substitution zulässig / Mathematik
     (cond
      ((dillo? animal) (run-over-dillo animal))
      ((parrot? animal) (run-over-parrot animal)))))
+
+#|
+interface Animal {
+   Animal runOver();
+   Animal feed(double amount);
+}
+
+class Dillo implements Animal {
+  Animal runOver() {...}
+}
+
+class Parrot implements Animal {
+  Animal runOver() {...}
+}
+
+class Rattlesnake implements Animal {
+  Animal runOver() {...}
+}
+
+|#
+
+; Mehr Klassen von Tieren (FP) -> jede Funktion auf animal muß angepaßt werden.
+
+; Mehr Methoden -> (OO) jede Klasse muß erweitert
+; (: feed-animal (animal number -> animal))
+
+; Expression Problem
+
+
+; Ein Fluss kommt entweder aus:
+; - einer Quelle
+; - einem Hauptfluss und einem Nebenfluss
+
+; Ein Fluss ist eins der folgenden:
+; - ein Bach aus einer Quelle
+; - ein Zusammentreffen von Hauptfluss und Nebenfluss
+;                                ^^^^^          ^^^^^
+;                                Selbstbezug
+(define river
+  (signature (mixed creek confluence)))
+
+(define-record creek
+  make-creek
+  creek?
+  (creek-origin string))
+
+(define-record confluence
+  make-confluence
+  confluence?
+  (confluence-location string)
+  (confluence-main-stem river) ; Selbstbezug
+  (confluence-tributary river)) ; Selbstbezug
+
+; Fließt in diesen Fluß Wasser aus diesem Ort?
+(: flows-from? (river string -> boolean))
+
+(define flows-from?
+  (lambda (river location)
+    (cond
+      ((creek? river)
+       (string=? (cree-origin river) location))
+      ((confluence? river)
+       ; zusammengesetzte Daten
+       (or (string=? (confluence-location river) location)
+           (flows-from? (confluence-main-stem river) location)
+           (flows-from? (confluence-tributary river) location))))))
+    
+  
