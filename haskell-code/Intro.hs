@@ -1,7 +1,5 @@
 module Intro where
 
-import System.IO.Error (permissionErrorType)
-import Polysemy.NonDet (NonDet(Empty))
 x :: Integer
 x = 12 * 23
 
