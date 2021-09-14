@@ -167,4 +167,7 @@ instance Functor [] where
 instance Functor Optional where
     umap = optionalMap
 
+-- Buch zu Haskell:
+-- https://www.cs.nott.ac.uk/~pszgmh/pih.html
+-- auch Videoreihe:
 -- 
