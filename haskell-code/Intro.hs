@@ -157,3 +157,5 @@ indexOf x (first:rest) =
 --        case indexOf x rest of
 --            None -> None
 --            Some i -> Some (i + 1)
+
+class Functor 
