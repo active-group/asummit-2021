@@ -114,3 +114,6 @@ class Semigroup a where
 -- Implementierung einer Typklasse
 instance Semigroup [a] where
     op = append
+
+class Semigroup a => Monoid a where
+    neutral :: a
