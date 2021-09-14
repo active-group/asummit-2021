@@ -169,5 +169,5 @@ instance Functor Optional where
 
 -- Buch zu Haskell:
 -- https://www.cs.nott.ac.uk/~pszgmh/pih.html
--- auch Videoreihe:
--- 
+-- auch Videoreihe(n):
+-- https://www.youtube.com/c/GrahamHuttonNotts/playlists
