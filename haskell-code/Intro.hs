@@ -207,6 +207,13 @@ instance Monad Optional where
     bind None f = None
     bind (Some x) f = f x 
 
+safeDivide :: Int -> Int -> Optional Int
+safeDivide a 0 = None
+safeDivide a b = Some (quot a b)
+
+foo = bind (safeDivide 6 7) (\ result -> safeDivide 5 7)
+
+
 -- Buch zu Haskell:
 -- https://www.cs.nott.ac.uk/~pszgmh/pih.html
 -- auch Videoreihe(n):
