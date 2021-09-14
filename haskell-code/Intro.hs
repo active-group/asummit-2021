@@ -196,7 +196,11 @@ class Functor f => Monad f where
     -- bind :: (a -> f b) -> f a -> f b
     bind :: f a -> (a -> f  b) -> f b
 
-
+instance Monad [] where
+    unit x = [x]
+    -- bind :: [a] -> (a -> [b]) -> [b]
+    bind [] f = []
+    bind (first:rest) f = first (bind rest
 
 -- Buch zu Haskell:
 -- https://www.cs.nott.ac.uk/~pszgmh/pih.html
