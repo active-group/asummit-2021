@@ -58,7 +58,7 @@ list1Old = Cons 17 Empty
 list2Old :: List Int
 list2Old = Cons 5 (Cons 17 Empty)
 
-list3Old :: List Animal
+list3Old :: List (Animal Int)
 list3Old = Cons dillo1 (Cons dillo2 (Cons parrot1 Empty))
 
 -- Summe aller Listenelemente berechnen
