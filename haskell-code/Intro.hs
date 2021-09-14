@@ -137,8 +137,8 @@ data Optional a =
    | None
    deriving Show
 
-optionalMap :: (a -> b) -> Optional a -> Optional b
-optionalMap
+-- optionalMap :: (a -> b) -> Optional a -> Optional b
+-- optionalMap
 
 -- Index eines Elements berechnen
 -- Eq: eingebaute Typklasse, "vergleichbar"
