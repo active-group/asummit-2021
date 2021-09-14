@@ -80,6 +80,7 @@ listProduct [] = 1 -- neutrales Element der Multiplikation
 listProduct (first:rest) = first * (listProduct rest)
 -- für alle x: 1 * x = x * 1 = x
 
+
 listMap :: (a -> b) -> [a] -> [b]
 listMap f [] = []
 listMap f (first:rest) = (f first) : (listMap f rest)
