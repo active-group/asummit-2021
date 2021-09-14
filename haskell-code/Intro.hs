@@ -80,6 +80,7 @@ listProduct (first:rest) = first * (listProduct rest)
 
 -- Typ/Menge A
 -- (: op (A A -> A)), Beispiele: +, *, overlay, beside, above
+-- op :: A -> A -> A
 -- Gleichungen
 -- Assoziativgesetz
 -- Beispiel für +: a + (b + c) = (a + b) + c
@@ -92,3 +93,7 @@ listProduct (first:rest) = first * (listProduct rest)
 -- Menge: Int, Operation *
 
 -- Halbgruppe + neutrales Element = Monoid
+
+-- class in Haskell: Typklasse, keine OO-Klasse
+-- eher: Interface
+
