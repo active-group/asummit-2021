@@ -145,6 +145,9 @@ data Optional a =
    | None
    deriving Show
 
+instance Semigroup (Optional a) where
+    op 
+
 optionalMap :: (a -> b) -> Optional a -> Optional b
 optionalMap f (Some x) = Some (f x)
 optionalMap f None = None
