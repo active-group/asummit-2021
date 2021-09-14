@@ -132,6 +132,6 @@ data Optional a =
    deriving Show
 
 -- Index eines Elements berechnen
-indexOf :: a -> [a] -> Int
+indexOf :: a -> [a] -> Optional Int
 indexOf x [] = -1
 indexOf x (first:rest) = undefined
