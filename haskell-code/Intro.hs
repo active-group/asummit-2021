@@ -46,19 +46,19 @@ data List element =
   deriving Show
 
 -- Liste, 1 Element, 17
-list1 :: List Int
-list1 = Cons 17 Empty
+list1' :: List Int
+list1' = Cons 17 Empty
 -- 2elementige Liste: 5 17
-list2 :: List Int
-list2 = Cons 5 (Cons 17 Empty)
+list2' :: List Int
+list2' = Cons 5 (Cons 17 Empty)
 
-list3 :: List Animal
-list3 = Cons dillo1 (Cons dillo2 (Cons parrot1 Empty))
+list3' :: List Animal
+list3' = Cons dillo1 (Cons dillo2 (Cons parrot1 Empty))
 
 -- Summe aller Listenelemente berechnen
-listSum :: List Int -> Int
-listSum Empty = 0
-listSum (Cons first rest) = first + (listSum rest)
+listSum' :: List Int -> Int
+listSum' Empty = 0
+listSum' (Cons first rest) = first + (listSum rest)
 
 -- Eingebaut:
 -- Empty --> []
