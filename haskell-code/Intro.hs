@@ -39,9 +39,10 @@ runOverAnimal (Parrot _ weight) = Parrot "" weight
 -- - die leere Liste
 -- - eine Cons-Liste aus erstem Element und Rest-Liste
 --                                               ^^^^^ Selbstbezug
-data List =
+-- Faustregel: Großbuchbuchstabe = Konstante, Kleinbuchstabe = Variable
+data List element =
     Empty
-  | Cons Int List
+  | Cons element List
   deriving Show
 
 -- Liste, 1 Element, 17
