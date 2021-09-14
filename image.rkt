@@ -111,3 +111,8 @@ Variable steht für einen Wert => Substitution zulässig / Mathematik
       ((string=? pet "dog") #t)
       ((string=? pet "cat") #t)
       ((string=? pet "snake") #f))))
+
+; Uhrzeit besteht aus / hat folgende Eigenschaften:
+; - Stunde
+; - Minute
+; zusammengesetzte Daten (NICHT: Komposition)
