@@ -83,4 +83,8 @@ listProduct (first:rest) = first * (listProduct rest)
 -- NICHT:          a - (b - c) = (a - b) - c
 -- Halbgruppe
 
+-- Beispiele:
+-- Menge: Int, Operation +
+-- Menge: Int, Operation *
+
 -- Halbgruppe + neutrales Element = Monoid
