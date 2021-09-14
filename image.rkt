@@ -63,3 +63,51 @@ In funktionalen Sprachen:
 Variable steht für einen Wert => Substitution zulässig / Mathematik 
 
 |#
+
+; Datenmodellierung
+
+; 1. Schritt: Datendefinition
+
+; Haustier ist eins der folgenden:
+; - Hund - ODER -
+; - Katze - ODER -
+; - Schlange
+; Fallunterscheidung
+; Spezialfall: Aufzählung
+
+; 2. Schritt: -> Code
+(define pet
+  (signature (enum "dog" "cat" "snake")))
+
+; Ist ein Haustier niedlich?
+(: cute? (pet -> boolean))
+
+(check-expect (cute? "dog") #t)
+(check-expect (cute? "cat") #t)
+(check-expect (cute? "snake") #f)
+
+; Gerüst
+#;(define cute?
+  (lambda (pet)
+    ...))
+
+; Schablone
+#;(define cute?
+  (lambda (pet)
+    ; Schablone
+    ; für Fallunterscheidungen: Verzweigung, einen Zweig pro Fall
+    ; jeder Zweig: Bedingung, Antwort
+    (cond
+      ((string=? pet "dog") ...)
+      ((string=? pet "cat") ...)
+      ((string=? pet "snake") ...))))
+
+(define cute?
+  (lambda (pet)
+    ; Schablone
+    ; für Fallunterscheidungen: Verzweigung, einen Zweig pro Fall
+    ; jeder Zweig: Bedingung, Antwort
+    (cond
+      ((string=? pet "dog") #t)
+      ((string=? pet "cat") #t)
+      ((string=? pet "snake") #f))))
