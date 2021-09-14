@@ -158,4 +158,12 @@ indexOf x (first:rest) =
 --            None -> None
 --            Some i -> Some (i + 1)
 
-class Functor 
+class Functor f where
+    umap :: (a -> b) -> f a -> f b
+
+instance Functor [] where
+    umap = listMap
+
+instance Functor Optional where
+    umap = optionalMap
+
