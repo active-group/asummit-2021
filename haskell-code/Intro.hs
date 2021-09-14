@@ -180,6 +180,7 @@ indexOf x (first:rest) =
 
 -- f ist ein Typkonstruktor
 class Functor f where
+    -- umap id 
     umap :: (a -> b) -> f a -> f b
 
 instance Functor [] where
