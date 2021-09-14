@@ -161,9 +161,12 @@ Variable steht für einen Wert => Substitution zulässig / Mathematik
 ; eigentlich: Zustand des Gürteltiers zu einem bestimmten Zeitpunkt
 (define-record dillo
   make-dillo
+  dillo? ; Prädikat
   (dillo-alive? boolean)
   (dillo-weight number))
 
+(: dillo? (any -> boolean))
+               
 ; lebendiges Gürteltier, 10kg
 (define dillo1 (make-dillo #t 10))
 ; totes Gürteltier, 12kg
