@@ -119,3 +119,15 @@ Variable steht für einen Wert => Substitution zulässig / Mathematik
 ; - Stunde
 ; - Minute
 ; zusammengesetzte Daten (NICHT: Komposition)
+(define-record time ; Signatur
+  make-time ; Konstruktor
+  (time-hour natural)
+  (time-minute natural))
+
+; natural: natürliche Zahl, "Zählzahl", 0,1,2,3,4,...
+(: make-time (natural natural -> time))
+
+; 12 Uhr 24
+(define time1 (make-time 12 24))
+; 5 Uhr 6
+(define time2 (make-time 5 06))
