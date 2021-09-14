@@ -145,13 +145,14 @@ data Optional a =
    | None
    deriving Show
 
+-- "Optional macht aus einer Halbgruppe einen Monoid"
 instance Semigroup a => Semigroup (Optional a) where
     op None None = None 
     op None (Some x) = Some x 
     op (Some x) None = Some x 
     op (Some x) (Some y) = Some (op x y)
 
-instance Monoid (Optional a) where
+instance Semigroup a => Monoid (Optional a) where
     neutral = None
 
 optionalMap :: (a -> b) -> Optional a -> Optional b
