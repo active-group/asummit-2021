@@ -58,7 +58,7 @@ list3Old = Cons dillo1 (Cons dillo2 (Cons parrot1 Empty))
 -- Summe aller Listenelemente berechnen
 listSumOld :: List Int -> Int
 listSumOld Empty = 0
-listSumOld (Cons first rest) = first + (listSum' rest)
+listSumOld (Cons first rest) = first + (listSumOld rest)
 
 -- Eingebaut:
 -- Empty --> []
