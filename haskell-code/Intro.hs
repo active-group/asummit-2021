@@ -64,9 +64,23 @@ listSumOld (Cons first rest) = first + (listSumOld rest)
 -- Empty --> []
 -- Cons first rest -> first : rest
 listSum :: [Int] -> Int -- "Liste von Int"
-listSum [] = 0
+listSum [] = 0 -- neutrales Element der Addition
 listSum (first:rest) = first + (listSum rest)
+-- für alle x: 0 + x = x + 0 = x
+ 
 
 listProduct :: [Int] -> Int
-listProduct [] = 1
+listProduct [] = 1 -- neutrales Element der Multiplikation
 listProduct (first:rest) = first * (listProduct rest)
+-- für alle x: 1 * x = x * 1 = x
+
+-- Typ/Menge A
+-- (: op (A A -> A)), Beispiele: +, *, overlay, beside, above
+-- Gleichungen
+-- Assoziativgesetz
+-- Beispiel für +: a + (b + c) = (a + b) + c
+--                 a * (b * c) = (a * b) * c
+-- NICHT:          a - (b - c) = (a - b) - c
+-- Halbgruppe
+
+-- Halbgruppe + neutrales Element = Monoid
