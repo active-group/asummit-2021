@@ -1,6 +1,7 @@
 module Intro where
 
 import System.IO.Error (permissionErrorType)
+import Polysemy.NonDet (NonDet(Empty))
 x :: Integer
 x = 12 * 23
 
@@ -36,3 +37,10 @@ runOverAnimal :: Animal -> Animal
 runOverAnimal (Dillo liveness w) = Dillo Dead w
 runOverAnimal (Parrot _ weight) = Parrot "" weight
 
+-- Eine Liste ist eins der folgenden:
+-- - die leere Liste
+-- - eine Cons-Liste aus erstem Element und Rest-Liste
+--                                               ^^^^^ Selbstbezug
+data List =
+    Empty
+  | Cons Int List
