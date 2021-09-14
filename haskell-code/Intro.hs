@@ -126,6 +126,8 @@ data Additive = Additive Int
 instance Semigroup Additive where
     op (Additive n1) (Additive n2) = Additive (n1 + n2)
 
+-- eingebaut: Maybe
+
 data Optional a =
      Some a
    | None
@@ -133,5 +135,11 @@ data Optional a =
 
 -- Index eines Elements berechnen
 indexOf :: a -> [a] -> Optional Int
-indexOf x [] = -1
-indexOf x (first:rest) = undefined
+indexOf x [] = None
+indexOf x (first:rest) = 
+    if x == first
+    then Some 0
+    else 
+        case indexOf x rest of
+            None -> None
+            Some i -> Some (i + 1)
