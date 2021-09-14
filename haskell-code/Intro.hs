@@ -35,6 +35,10 @@ runOverAnimal :: Animal -> Animal
 runOverAnimal (Dillo liveness w) = Dillo Dead w
 runOverAnimal (Parrot _ weight) = Parrot "" weight
 
+feedAnimal :: Weight -> (Animal -> Animal)
+feedAnimal amount (Dillo liveness weight) = Dillo liveness (weight + amount)
+feedAnimal amount (Parrot sentence weight) = Parrot sentence (weight + amount)
+
 -- Eine Liste ist eins der folgenden:
 -- - die leere Liste
 -- - eine Cons-Liste aus erstem Element und Rest-Liste
