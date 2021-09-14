@@ -133,3 +133,14 @@ Variable steht für einen Wert => Substitution zulässig / Mathematik
 (define time1 (make-time 12 24))
 ; 5 Uhr 6
 (define time2 (make-time 5 06))
+
+; Minuten seit Mitternacht
+(: msm (time -> natural))
+
+(check-expect (msm time1) (+ (* 12 60) 24))
+(check-expect (msm time2) (+ (* 12 5) 6))
+
+(define msm
+  (lambda (time)
+    (+ (* (time-hour time) 60)
+       (time-minute time))))
