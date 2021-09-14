@@ -91,9 +91,20 @@ listProduct (first:rest) = first * (listProduct rest)
 -- Beispiele:
 -- Menge: Int, Operation +
 -- Menge: Int, Operation *
+-- Menge: image, Operation: overlay
+-- Menge [a]
+append :: [a] -> [a] -> [a]
+append [] list2 = list2
+append (first:rest) list2 = first : (append rest list2)
+
+-- Kommutativgesetzt:
+-- a + b == b + a
 
 -- Halbgruppe + neutrales Element = Monoid
 
 -- class in Haskell: Typklasse, keine OO-Klasse
 -- eher: Interface
-
+class Semigroup a where
+    -- op muß das Assoziativgesetz erfüllen
+    -- op (op a b) c == op a (op b c)
+    op :: a -> a -> a
