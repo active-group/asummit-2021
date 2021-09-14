@@ -211,3 +211,14 @@ Variable steht für einen Wert => Substitution zulässig / Mathematik
 (define animal
   (signature (mixed dillo parrot)))
 
+; Tier überfahren
+(: run-over-animal (animal -> animal))
+
+(check-expect (run-over-animal dillo1)
+              (run-over-dillo dillo1))
+(check-expect (run-over-animal parrot1)
+              (run-over-parrot parrot1))
+
+(define run-over-animal
+  (lambda (animal)
+    
