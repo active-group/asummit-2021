@@ -120,6 +120,9 @@ class Semigroup a where
 instance Semigroup [a] where
     op = append
 
+instance (Semigroup a, Semigroup b) => Semigroup (a, b) where
+    op (a1, b1) (a2, b2) = (op a1 a2, op b1 b2)
+
 class Semigroup a => Monoid a where
     neutral :: a
 
