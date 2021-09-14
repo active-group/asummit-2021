@@ -138,9 +138,76 @@ Variable steht für einen Wert => Substitution zulässig / Mathematik
 (: msm (time -> natural))
 
 (check-expect (msm time1) (+ (* 12 60) 24))
-(check-expect (msm time2) (+ (* 12 5) 6))
+(check-expect (msm time2) (+ (* 5 60) 6))
 
 (define msm
   (lambda (time)
     (+ (* (time-hour time) 60)
        (time-minute time))))
+
+; Minuten seit Mitternacht in Uhrzeit umwandeln
+(: msm->time (natural -> time))
+
+(check-expect (msm->time (+ (* 5 60) 6)) time2)
+
+(define msm->time
+  (lambda (msm)
+    (make-time (quotient msm 60)
+               (remainder msm 60))))
+
+; Ein Gürteltier hat folgende Eigenschaften:
+; - lebendig oder tot - UND -
+; - Gewicht
+; eigentlich: Zustand des Gürteltiers zu einem bestimmten Zeitpunkt
+(define-record dillo
+  make-dillo
+  (dillo-alive? boolean)
+  (dillo-weight number))
+
+; lebendiges Gürteltier, 10kg
+(define dillo1 (make-dillo #t 10))
+; totes Gürteltier, 12kg
+(define dillo2 (make-dillo #f 12))
+
+; objektorientiert: (dillo -> void)
+
+; Gürteltier
+(: run-over-dillo (dillo -> dillo))
+
+(check-expect (run-over-dillo dillo1) (make-dillo #f 10))
+(check-expect (run-over-dillo dillo2)
+              dillo2)
+
+(define run-over-dillo
+  (lambda (dillo)
+    (make-dillo #f (dillo-weight dillo))))
+
+; Ein Papagei hat folgende Eigenschaften:
+; - Satz
+; - Gewicht
+(define-record parrot
+  make-parrot
+  (parrot-sentence string)
+  (parrot-weight number))
+
+; Papagei, begrüßt immer, 1kg
+(define parrot1 (make-parrot "Hallo!" 1))
+; dicker Papagei, verabschiedet
+(define parrot2 (make-parrot "Tschüß!" 2))
+
+; Papagei überfahren
+(: run-over-parrot (parrot -> parrot))
+
+(check-expect (run-over-parrot parrot1) (make-parrot "" 1))
+
+(define run-over-parrot
+  (lambda (parrot)
+    (make-parrot "" (parrot-weight parrot))))
+
+; Ein Tier (auf dem texanischen Highway) ist eins der folgenden:
+; - Gürteltier - ODER -
+; - Papagei
+; gemischte Daten
+(define animal
+  (signature (mixed dillo parrot)))
+
