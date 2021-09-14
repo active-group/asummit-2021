@@ -1,6 +1,6 @@
 module Intro where
 
-import Prelude hiding (Semigroup, Monoid)
+import Prelude hiding (Semigroup, Monoid, Functor)
 
 x :: Integer
 x = 12 * 23
