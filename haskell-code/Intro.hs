@@ -92,7 +92,7 @@ listProduct (first:rest) = first * (listProduct rest)
 -- Menge: Int, Operation +
 -- Menge: Int, Operation *
 -- Menge: image, Operation: overlay
--- Menge [a]
+-- Menge [a], Operation: append, neutrales Element: []
 append :: [a] -> [a] -> [a]
 append [] list2 = list2
 append (first:rest) list2 = first : (append rest list2)
@@ -108,3 +108,7 @@ class Semigroup a where
     -- op muß das Assoziativgesetz erfüllen
     -- op (op a b) c == op a (op b c)
     op :: a -> a -> a
+
+-- Implementierung einer Typklasse
+instance Semigroup [a] where
+    op = append
