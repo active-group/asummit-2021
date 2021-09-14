@@ -22,6 +22,17 @@
  (beside circle1 square1)
  (beside square1 circle1))
 
+; Konstruktionsanleitungen für eine Funktion
+; 1. Schritt: Kurzbeschreibung
+
+; Quadratisches Kachelmuster erzeugen
+; 2. Schritt: Signaturdeklaration
+(: tile (image image -> image))
+
+; 3. Schritt: Tests
+; ...
+
+; 4. Schritt: Funktionsdefinition
 (define tile
   (lambda (image1 image2)
     (above
