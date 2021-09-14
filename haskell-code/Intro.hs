@@ -129,6 +129,7 @@ instance Semigroup Additive where
 data Optional a =
      Some a
    | None
+   deriving Show
 
 -- Index eines Elements berechnen
 indexOf :: a -> [a] -> Int
