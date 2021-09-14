@@ -134,7 +134,7 @@ data Optional a =
    deriving Show
 
 -- Index eines Elements berechnen
-indexOf :: a -> [a] -> Optional Int
+indexOf :: Eq a => a -> [a] -> Optional Int
 indexOf x [] = None
 indexOf x (first:rest) = 
     if x == first
