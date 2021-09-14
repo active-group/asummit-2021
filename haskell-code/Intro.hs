@@ -68,5 +68,5 @@ listSum [] = 0
 listSum (first:rest) = first + (listSum rest)
 
 listProduct :: [Int] -> Int
-listPropduct []
+listPropduct [] = 1
 listProduct (first:rest) = first * (listProduct rest)
