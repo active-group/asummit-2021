@@ -294,5 +294,6 @@ class Rattlesnake implements Animal {
        (or (string=? (confluence-location river) location)
            (flows-from? (confluence-main-stem river) location)
            (flows-from? (confluence-tributary river) location))))))
-    
+
+; Selbstbezug ... Kombinator ... Domänenmodell
   
