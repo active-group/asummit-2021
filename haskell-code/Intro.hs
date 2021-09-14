@@ -16,28 +16,28 @@ data Liveness = Dead | Alive
 -- Typ-Synonym
 type Weight = Int
 
-data Animal =
-    Dillo Liveness Weight
-  | Parrot String Weight
+data Animal weight =
+    Dillo Liveness weight
+  | Parrot String weight
   deriving Show
 
 -- Gürteltier, lebendig, 10kg
-dillo1 :: Animal
+dillo1 :: Animal Int
 dillo1 = Dillo Alive 10
 -- totes Gürteltier, 12kg
-dillo2 :: Animal
+dillo2 :: Animal Int
 dillo2 = Dillo Dead 12
 
-parrot1 :: Animal
+parrot1 :: Animal Int
 parrot1 = Parrot "Hallo1" 1
 
 -- Tier überfahren
-runOverAnimal :: Animal -> Animal
+-- runOverAnimal :: Animal -> Animal
 -- 1 Gleichung pro Fall im Datentyp
 runOverAnimal (Dillo liveness w) = Dillo Dead w
 runOverAnimal (Parrot _ weight) = Parrot "" weight
 
-feedAnimal :: Weight -> Animal -> Animal
+-- feedAnimal :: Weight -> Animal -> Animal
 feedAnimal amount (Dillo liveness weight) = Dillo liveness (weight + amount)
 feedAnimal amount (Parrot sentence weight) = Parrot sentence (weight + amount)
 
@@ -175,6 +175,7 @@ indexOf x (first:rest) =
 --            None -> None
 --            Some i -> Some (i + 1)
 
+-- f ist ein Typkonstruktor
 class Functor f where
     umap :: (a -> b) -> f a -> f b
 
