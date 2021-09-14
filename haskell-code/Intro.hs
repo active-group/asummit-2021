@@ -179,8 +179,10 @@ indexOf x (first:rest) =
 --            Some i -> Some (i + 1)
 
 -- f ist ein Typkonstruktor
+-- "Funktor": Begriff aus der Kategorietheorie
+-- "abstract nonsense"
 class Functor f where
-    -- umap id 
+    -- umap id = id 
     umap :: (a -> b) -> f a -> f b
 
 instance Functor [] where
@@ -188,6 +190,8 @@ instance Functor [] where
 
 instance Functor Optional where
     umap = optionalMap
+
+
 
 -- Buch zu Haskell:
 -- https://www.cs.nott.ac.uk/~pszgmh/pih.html
