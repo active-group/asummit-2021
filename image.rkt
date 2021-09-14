@@ -12,14 +12,20 @@
 (define overlay1 (overlay star1 circle1))
 (define overlay2 (overlay circle1 square1))
 
-(above
+; Kommentar
+
+#;(above
  (beside star1 circle1)
  (beside circle1 star1))
 
-(above
+#;(above
  (beside circle1 square1)
  (beside square1 circle1))
 
-(above
- (beside image1 image2)
- (beside image2 image1))
+(define tile
+  (lambda (image1 image2)
+    (above
+     (beside image1 image2)
+     (beside image2 image1))))
+
+(tile circle1 star1)
