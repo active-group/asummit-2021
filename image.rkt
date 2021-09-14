@@ -11,3 +11,7 @@
 
 (define overlay1 (overlay star1 circle1))
 (define overlay2 (overlay circle1 square1))
+
+(above
+ (beside star1 circle1)
+ (beside circle1 star1))
