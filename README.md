@@ -21,3 +21,8 @@ https://download.racket-lang.org/
 Da sollte jetzt eine Meldung erscheinen, dass ein Docker-Image gebaut
 wird.  Das kann eine Weile dauern, sollte aber ohne Fehlermeldung
 vonstatten gehen.
+
+## Material:
+
+- Buch zu Haskell: [Graham Hutton, Programming in Haskell](https://www.cs.nott.ac.uk/~pszgmh/pih.html)
+- auch [Videoreihe(n)](https://www.youtube.com/c/GrahamHuttonNotts/playlists)
