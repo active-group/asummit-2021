@@ -141,6 +141,8 @@ optionalMap :: (a -> b) -> Optional a -> Optional b
 optionalMap f (Some x) = Some (f x)
 optionalMap f None = None
 
+inc x = x + 1
+
 -- Index eines Elements berechnen
 -- Eq: eingebaute Typklasse, "vergleichbar"
 indexOf :: Eq a => a -> [a] -> Optional Int
@@ -149,6 +151,8 @@ indexOf x (first:rest) =
     if x == first
     then Some 0
     else 
-        case indexOf x rest of
-            None -> None
-            Some i -> Some (i + 1)
+        optionalMap inc (indexOf x rest)
+
+--        case indexOf x rest of
+--            None -> None
+--            Some i -> Some (i + 1)
