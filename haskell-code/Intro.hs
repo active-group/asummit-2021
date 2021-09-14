@@ -117,3 +117,6 @@ instance Semigroup [a] where
 
 class Semigroup a => Monoid a where
     neutral :: a
+
+instance Monoid [a] where
+    neutral = []
