@@ -110,7 +110,8 @@ Variable steht für einen Wert => Substitution zulässig / Mathematik
     (cond
       ((string=? pet "dog") #t)
       ((string=? pet "cat") #t)
-      ((string=? pet "snake") #f))))
+      ((string=? pet "snake") #f)
+      #;(else #t))))
 
 ;(cute? "parakeet")
 
