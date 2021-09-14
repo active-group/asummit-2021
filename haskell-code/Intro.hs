@@ -63,4 +63,7 @@ listSum' (Cons first rest) = first + (listSum' rest)
 -- Eingebaut:
 -- Empty --> []
 -- Cons first rest -> first : rest
+listSum :: [Int] -> Int -- "Liste von Int"
+listSum [] = 0
+listSum (first:rest) = first + (listSum rest)
 
