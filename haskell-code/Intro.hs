@@ -200,7 +200,12 @@ instance Monad [] where
     unit x = [x]
     -- bind :: [a] -> (a -> [b]) -> [b]
     bind [] f = []
-    bind (first:rest) f = first (bind rest
+    bind (first:rest) f = append (f first) (bind rest f)
+
+instance Monad Optional where
+    unit = Some
+    bind None f = None
+    bind (Some x) f = f x 
 
 -- Buch zu Haskell:
 -- https://www.cs.nott.ac.uk/~pszgmh/pih.html
