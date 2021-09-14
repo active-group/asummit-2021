@@ -42,3 +42,4 @@ runOverAnimal (Parrot _ weight) = Parrot "" weight
 data List =
     Empty
   | Cons Int List
+  deriving Show
