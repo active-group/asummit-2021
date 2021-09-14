@@ -11,3 +11,4 @@ x = 12 * 23
 data Animal =
     Dillo Bool Int 
   | Parrot String Int
+  deriving Show
