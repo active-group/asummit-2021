@@ -221,4 +221,6 @@ Variable steht für einen Wert => Substitution zulässig / Mathematik
 
 (define run-over-animal
   (lambda (animal)
-    
+    (cond
+     (... ...)
+     (... ...))))
