@@ -23,8 +23,9 @@ data Currency = EUR | GBP
 
 data Contract =
       Coin Currency -- Coin EUR "1 EUR jetzt"
-    | Coins [Currency]
-    | Multiply Amount Currency
+    | Coins [Contract]
+    | Multiply Amount Contract
+    | Later Date Contract 
     deriving Show
 
 
