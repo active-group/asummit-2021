@@ -9,12 +9,18 @@ type Amount = Double
 data Currency = EUR | GBP
   deriving Show
 
+-- Alternative:
+-- data Amount = Amount Double Currency
+
 data Contract =
-   ZeroCouponBond Date Amount Currency 
+     ZeroCouponBond Date Amount Currency 
+   | CurrencySwap Date Amount Currency Amount Currency
    deriving Show
 
 zcb1 :: Contract
 zcb1 = ZeroCouponBond "2021-12-24" 100 EUR
 
 zcb2 :: Contract
-zcb2 = 
+zcb2 = ZeroCouponBond "2021-12-24" 100.0 GBP
+
+swap1 = CurrencySwap "2021-12-24" 100 EUR 100 GBP
