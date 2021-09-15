@@ -9,5 +9,5 @@ type Amount = Double
 data Currency = EUR | GBP
 
 data Contract =
-    ZeroCouponBond Date Amount Currency 
-    deriving Show
+   ZeroCouponBond Date Amount Currency 
+   deriving Show
