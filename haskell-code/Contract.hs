@@ -62,14 +62,20 @@ currencySwap date amountIn currencyIn amountOut currencyOut =
 data Payment = Payment Date Direction Amount Currency
   deriving Show
 
+multiplyPayment factor (Payment date direction amount currency) =
+  Payment date direction (amount * factor) currency
+
 -- Semantik
 payments :: Contract -> Date -> ([Payment], Contract) -- "Restvertrag", "Residualvertrag"
-payments EmptyContract now = undefined
-payments (Coin currency) now = undefined
+payments EmptyContract now = ([], EmptyContract)
+payments (Coin currency) now = ([Payment now Long 1 currency], EmptyContract)
 payments (Combine contract1 contract2) now = undefined 
 payments (Later date contract) now = undefined 
 payments (Invert contract) now = undefined 
-payments (Multiply factor contract) now = undefined
+payments (Multiply factor contract) now = 
+  let (contractPayments, contractRest) = payments contract now
+  in (map (multiplyPayment factor) contractPayments,
+      Multiply factor contractRest)
 
 
 
