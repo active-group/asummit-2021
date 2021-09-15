@@ -22,7 +22,9 @@ data Currency = EUR | GBP
 -- 3. Idee: "später"
 
 data Contract =
-    Coin Currency -- "1 EUR jetzt"
+      Coin Currency -- Coin EUR "1 EUR jetzt"
+    | Coins [Currency]
+    | Multiply Amount Currency
     deriving Show
 
 
