@@ -13,4 +13,8 @@ data Contract =
    ZeroCouponBond Date Amount Currency 
    deriving Show
 
-zcb1 = 
+zcb1 :: Contract
+zcb1 = ZeroCouponBond "2021-12-24" 100 EUR
+
+zcb2 :: Contract
+zcb2 = 
