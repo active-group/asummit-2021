@@ -38,6 +38,11 @@ zcb1 = zeroCouponBond "2021-12-24" 100 EUR
 zcb2 :: Contract
 zcb2 = zeroCouponBond "2021-12-24" 100.0 GBP
 
+currencySwap date amountIn currencyIn amountOut currencyOut =
+  Combine [zeroCouponBond date amountIn currencyIn,
+           zeroCouponBond date amountOut currencyOut]
+
+
 {-
 data Contract =
      ZeroCouponBond Date Amount Currency 
