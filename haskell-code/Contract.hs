@@ -28,6 +28,12 @@ data Currency = EUR | GBP
 -- - (Assoziativgesetz)
 -- - neutrales Element
 
+{-
+data Direction = Long | Short
+
+data Contract' = Contract'' Direction Contract
+-}
+
 data Contract =
       Coin Currency -- Coin EUR "1 EUR jetzt"
     -- | Combine [Contract]
