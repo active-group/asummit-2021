@@ -12,6 +12,7 @@ data Currency = EUR | GBP
 -- Funktionale Modellierung / Modellierung mit Kombinatoren
 -- 1. möglichst einfache Beispiele
 -- 2. in möglichst kleine Einzelteile / Ideen zerlegen
+-- 3. weitere Beispiele
 
 -- Alternative:
 -- data Amount = Amount Double Currency
@@ -32,10 +33,10 @@ zeroCouponBond :: Date -> Amount -> Currency -> Contract
 zeroCouponBond date amount currency = Later date (Multiply amount (Coin currency))
 
 zcb1 :: Contract
-zcb1 = ZeroCouponBond "2021-12-24" 100 EUR
+zcb1 = zeroCouponBond "2021-12-24" 100 EUR
 
 zcb2 :: Contract
-zcb2 = ZeroCouponBond "2021-12-24" 100.0 GBP
+zcb2 = zeroCouponBond "2021-12-24" 100.0 GBP
 
 {-
 data Contract =
