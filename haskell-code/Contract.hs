@@ -30,6 +30,7 @@ data Currency = EUR | GBP
 
 
 data Direction = Long | Short
+ deriving Show
 {-
 data Contract' = Contract'' Direction Contract
 -}
@@ -60,7 +61,7 @@ currencySwap date amountIn currencyIn amountOut currencyOut =
 
 data Payment = Payment Date Direction Amount Currency
   deriving Show
-  
+
 -- Semantik
 payments :: Contract -> Date -> ([Payment], Contract) -- "Restvertrag", "Residualvertrag"
 payments EmptyContract now = undefined
