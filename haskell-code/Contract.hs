@@ -28,9 +28,9 @@ data Currency = EUR | GBP
 -- - (Assoziativgesetz)
 -- - neutrales Element
 
-{-
-data Direction = Long | Short
 
+data Direction = Long | Short
+{-
 data Contract' = Contract'' Direction Contract
 -}
 
@@ -56,6 +56,20 @@ zcb2 = zeroCouponBond "2021-12-24" 100.0 GBP
 currencySwap date amountIn currencyIn amountOut currencyOut =
   Combine (zeroCouponBond date amountIn currencyIn)
           (Invert (zeroCouponBond date amountOut currencyOut))
+
+
+data Payment = Payment Date Direction Amount Currency
+  deriving Show
+  
+-- Semantik
+payments :: Contract -> Date -> ([Payment], Contract) -- "Restvertrag", "Residualvertrag"
+payments EmptyContract now = undefined
+payments (Coin currency) now = undefined
+payments (Combine contract1 contract2) now = undefined 
+payments (Later date contract) now = undefined 
+payments (Invert contract) now = undefined 
+payments (Multiply factor contract) now = undefined
+
 
 
 {-
