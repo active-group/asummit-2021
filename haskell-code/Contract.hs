@@ -4,7 +4,6 @@ module Contract where
 -- Ich bekomme Weihnachten 100 EUR.
 -- Ich bekomme Weihnachten 100 GBP.
 
-import Prelude (Show)
 type Date = String -- "2021-12-24"
 type Amount = Double
 data Currency = EUR | GBP
