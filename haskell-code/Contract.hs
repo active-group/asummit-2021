@@ -7,6 +7,7 @@ module Contract where
 type Date = String -- "2021-12-24"
 type Amount = Double
 data Currency = EUR | GBP
+  deriving Show
 
 data Contract =
    ZeroCouponBond Date Amount Currency 
