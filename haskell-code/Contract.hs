@@ -12,3 +12,5 @@ data Currency = EUR | GBP
 data Contract =
    ZeroCouponBond Date Amount Currency 
    deriving Show
+
+zcb1 = 
