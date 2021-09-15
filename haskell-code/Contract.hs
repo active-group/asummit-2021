@@ -15,7 +15,16 @@ data Currency = EUR | GBP
 data Contract =
      ZeroCouponBond Date Amount Currency 
    | CurrencySwap Date Amount Currency Amount Currency
+   | Everest
+   | Himalaya
+   -- usw. jedesmal erweitern, wenn neues Produkt
    deriving Show
+
+{-
+- Ted will Preis wissen
+- Risikokontrolle will Szenarien
+- Marie möchte Zahlungen
+-}
 
 zcb1 :: Contract
 zcb1 = ZeroCouponBond "2021-12-24" 100 EUR
