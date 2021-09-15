@@ -21,12 +21,21 @@ data Currency = EUR | GBP
 -- 1. Idee: Währung festlegen / "Währung"
 -- 2. Idee: Betrag
 -- 3. Idee: "später"
+-- 4. Idee: Richtung umdrehen
+
+-- Immer suchen: Monoid 
+-- - 2stellige Operation: Contract -> Contract -> Contract
+-- - (Assoziativgesetz)
+-- - neutrales Element
 
 data Contract =
       Coin Currency -- Coin EUR "1 EUR jetzt"
-    | Combine [Contract]
+    -- | Combine [Contract]
+    | Combine Contract Contract
+    | EmptyContract -- "neutrales Element"
     | Multiply Amount Contract
     | Later Date Contract 
+    | Invert Contract -- aus in wird out und umgekehrt
     deriving Show
 
 zeroCouponBond :: Date -> Amount -> Currency -> Contract
@@ -40,7 +49,7 @@ zcb2 = zeroCouponBond "2021-12-24" 100.0 GBP
 
 currencySwap date amountIn currencyIn amountOut currencyOut =
   Combine [zeroCouponBond date amountIn currencyIn,
-           zeroCouponBond date amountOut currencyOut]
+           Invert (zeroCouponBond date amountOut currencyOut)]
 
 
 {-
