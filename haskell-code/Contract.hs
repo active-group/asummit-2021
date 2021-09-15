@@ -23,6 +23,7 @@ data Currency = EUR | GBP
 
 data Contract =
     Coin Currency -- "1 EUR jetzt"
+    deriving Show
 
 
 
