@@ -31,6 +31,12 @@ data Contract =
 zeroCouponBond :: Date -> Amount -> Currency -> Contract
 zeroCouponBond date amount currency = Later date (Multiply amount (Coin currency))
 
+zcb1 :: Contract
+zcb1 = ZeroCouponBond "2021-12-24" 100 EUR
+
+zcb2 :: Contract
+zcb2 = ZeroCouponBond "2021-12-24" 100.0 GBP
+
 {-
 data Contract =
      ZeroCouponBond Date Amount Currency 
