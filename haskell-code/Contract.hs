@@ -23,12 +23,13 @@ data Currency = EUR | GBP
 
 data Contract =
       Coin Currency -- Coin EUR "1 EUR jetzt"
-    | Coins [Contract]
+    | Combine [Contract]
     | Multiply Amount Contract
     | Later Date Contract 
     deriving Show
 
-
+zeroCouponBond :: Date -> Amount -> Currency -> Contract
+zeroCouponBond date amount currency = Later date (Multiply amount (Coin currency))
 
 {-
 data Contract =
